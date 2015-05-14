@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D19A42831B048940006C4293 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D19A42821B048940006C4293 /* libsqlite3.dylib */; };
+		D19A42861B04895B006C4293 /* MDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D19A42851B04895B006C4293 /* MDBManager.m */; };
 		D19F33081B03AA2E0059E23D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19F33071B03AA2E0059E23D /* Foundation.framework */; };
 		D19F330A1B03AA2E0059E23D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19F33091B03AA2E0059E23D /* CoreGraphics.framework */; };
 		D19F330C1B03AA2E0059E23D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19F330B1B03AA2E0059E23D /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D19A42821B048940006C4293 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		D19A42841B04895B006C4293 /* MDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBManager.h; sourceTree = "<group>"; };
+		D19A42851B04895B006C4293 /* MDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBManager.m; sourceTree = "<group>"; };
 		D19F33041B03AA2E0059E23D /* Note App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Note App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D19F33071B03AA2E0059E23D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D19F33091B03AA2E0059E23D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -66,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19A42831B048940006C4293 /* libsqlite3.dylib in Frameworks */,
 				D19F330A1B03AA2E0059E23D /* CoreGraphics.framework in Frameworks */,
 				D19F330C1B03AA2E0059E23D /* UIKit.framework in Frameworks */,
 				D19F33081B03AA2E0059E23D /* Foundation.framework in Frameworks */,
@@ -107,6 +113,7 @@
 		D19F33061B03AA2E0059E23D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D19A42821B048940006C4293 /* libsqlite3.dylib */,
 				D19F33071B03AA2E0059E23D /* Foundation.framework */,
 				D19F33091B03AA2E0059E23D /* CoreGraphics.framework */,
 				D19F330B1B03AA2E0059E23D /* UIKit.framework */,
@@ -129,6 +136,8 @@
 				D19F33431B03BE190059E23D /* MNoteEditorViewController.m */,
 				D19F33451B03C2A50059E23D /* MNote.h */,
 				D19F33461B03C2A50059E23D /* MNote.m */,
+				D19A42841B04895B006C4293 /* MDBManager.h */,
+				D19A42851B04895B006C4293 /* MDBManager.m */,
 			);
 			path = "Note App";
 			sourceTree = "<group>";
@@ -261,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D19F33181B03AA2E0059E23D /* MAppDelegate.m in Sources */,
+				D19A42861B04895B006C4293 /* MDBManager.m in Sources */,
 				D19F33141B03AA2E0059E23D /* main.m in Sources */,
 				D19F33471B03C2A50059E23D /* MNote.m in Sources */,
 				D19F33411B03BDF70059E23D /* MNotesListViewController.m in Sources */,
@@ -473,6 +483,7 @@
 				D19F33381B03AA2F0059E23D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D19F33391B03AA2F0059E23D /* Build configuration list for PBXNativeTarget "Note AppTests" */ = {
 			isa = XCConfigurationList;
@@ -481,6 +492,7 @@
 				D19F333B1B03AA2F0059E23D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

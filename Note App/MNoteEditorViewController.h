@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MNote.h"
+#import "MDBManager.h"
 
-@interface MNoteEditorViewController : UIViewController
+@interface MNoteEditorViewController : UIViewController <UIAlertViewDelegate, UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextView *textEditor;
+@property (strong, nonatomic) MNote *note;
+
+- (IBAction)saveNote:(id)sender;
 
 @end

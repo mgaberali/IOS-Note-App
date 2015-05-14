@@ -12,7 +12,15 @@
 
 @end
 
-@implementation MNotesListViewController
+@implementation MNotesListViewController{
+    
+    NSMutableArray *notes;
+    
+    IBOutlet UITableView *tableViewOutlet;
+    
+    IBOutlet UISearchBar *searchBarOutlet;
+    
+}
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -27,6 +35,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // ************ test *************
+//    MDBManager *mgr = [MDBManager getInstance];
+////    MNote *m = [MNote new];
+////    [m setNoteName:@"dsdsd"];
+////    [m setNoteText:@"hello"];
+////    [m setTextBold:1];
+////    [m setTextItalic:1];
+////    [m setTextSize:24];
+////    [m setLastModified:[NSDate date]];
+////    [mgr insertNote:m];
+//    
+//    NSArray *notes = [mgr getAllNotes];
+//    MNote *note= [notes objectAtIndex:0];
+//    [note setNoteName:@"my note"];
+//    [mgr updateNote:note];
+//    [mgr getAllNotes];
+    // *******************************
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -45,24 +72,34 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return [notes count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *cellIdentifier = @"cellID";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:
+                             cellIdentifier];
+    // Configure the cell...
+    
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     
     // Configure the cell...
+    
+    MNote *note = [notes objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [note noteName];
+    
+    NSString *lastModifiedDate = @"Last modified: ";
+    lastModifiedDate = [lastModifiedDate stringByAppendingString: [note lastModified]];
+    
+    cell.detailTextLabel.text = lastModifiedDate;
     
     return cell;
 }
@@ -117,5 +154,49 @@
 }
 
  */
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        MNote *note = [notes objectAtIndex:indexPath.row];
+        MDBManager *dbMgr = [MDBManager getInstance];
+        
+        if([dbMgr deleteNote:[note noteName]]){
+            
+            [notes removeObjectAtIndex:indexPath.row];
+            [tableView reloadData];
+        }
+        
+        
+    }
+    
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    
+    // load all notes from db
+    MDBManager *dbMgr = [MDBManager getInstance];
+    notes = [dbMgr getAllNotes];
+    [tableViewOutlet reloadData];
+    
+}
+
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  
+    MNote *note = [notes objectAtIndex:indexPath.row];
+    
+    // create Note Editor view controller
+    MNoteEditorViewController *noteEditorViewController = [[self storyboard] instantiateViewControllerWithIdentifier:@"noteEditor"];
+    [noteEditorViewController setNote:note];
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:noteEditorViewController animated:YES];
+}
+
 
 @end

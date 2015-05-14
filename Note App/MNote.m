@@ -10,6 +10,6 @@
 
 @implementation MNote
 
-@synthesize noteName, lastModified, textColor, textFont, noteText;
+@synthesize noteName, lastModified, textSize, textBold, textItalic, noteText;
 
 @end

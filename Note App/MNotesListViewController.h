@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MDBManager.h"
+#import "MNoteEditorViewController.h"
 
 @interface MNotesListViewController : UITableViewController
 

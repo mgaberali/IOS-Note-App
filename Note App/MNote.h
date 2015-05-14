@@ -11,9 +11,10 @@
 @interface MNote : NSObject
 
 @property (strong) NSString *noteName;
-@property (strong) NSDate *lastModified;
-@property (strong) UIColor *textColor;
-@property (strong) UIFont *textFont;
+@property (strong) NSString *lastModified;
+@property int textSize;
+@property int textBold;
+@property int textItalic;
 @property (strong) NSMutableString *noteText;
 
 @end
