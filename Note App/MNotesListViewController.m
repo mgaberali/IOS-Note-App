@@ -36,6 +36,15 @@
 {
     [super viewDidLoad];
     
+    searchBarOutlet.delegate = self;
+    
+    //self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_bar.png"]];
+    
+
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bar.png"] forBarMetrics:nil];
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    
     // ************ test *************
 //    MDBManager *mgr = [MDBManager getInstance];
 ////    MNote *m = [MNote new];
@@ -95,11 +104,13 @@
     MNote *note = [notes objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [note noteName];
+    cell.textLabel.textColor = [[UIColor alloc] initWithRed:91.0/255.0 green:177.0/255.0 blue:236.0/255.0 alpha:1.0];
     
     NSString *lastModifiedDate = @"Last modified: ";
     lastModifiedDate = [lastModifiedDate stringByAppendingString: [note lastModified]];
     
     cell.detailTextLabel.text = lastModifiedDate;
+    cell.detailTextLabel.textColor = [[UIColor alloc] initWithRed:100.0/255.0 green:105.0/255.0 blue:117.0/255.0 alpha:1.0];
     
     return cell;
 }
@@ -198,5 +209,12 @@
     [self.navigationController pushViewController:noteEditorViewController animated:YES];
 }
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    
+    notes = [[MDBManager getInstance] searchNotesByText:searchText];
+    [tableViewOutlet reloadData];
+    
+    
+}
 
 @end

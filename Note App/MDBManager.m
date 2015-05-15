@@ -164,10 +164,63 @@ static sqlite3_stmt *statement = nil;
     
 }
 
-//
-//- (NSArray *) searchNotesByText: (NSString *) searchText{
-//
-//}
+
+- (NSArray *) searchNotesByText: (NSString *) searchText{
+
+    NSMutableArray *notes = [NSMutableArray new];
+    
+    NSString *query = [[NSString alloc] initWithFormat:@"select * from note where note_text like \"%%%@%%\" or note_name like \"%%%@%%\" ", searchText, searchText];
+    
+    const char *query_stmt = [query UTF8String];
+    
+    const char *dbpath = [databasePath UTF8String];
+    
+    
+    if(sqlite3_open(dbpath, &database) == SQLITE_OK){
+        
+        if(sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK){
+            
+            while(sqlite3_step(statement) == SQLITE_ROW){
+                
+                // get note name
+                NSString *noteName = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 0)];
+                
+                // get last modified date
+                NSString *lastModifiedDate = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 1)];
+                
+                // get note text
+                NSString *noteText = [[NSString alloc] initWithUTF8String:(const char *) sqlite3_column_text(statement, 5)];
+                
+                // get note size
+                int noteSize = sqlite3_column_int(statement, 2);
+                
+                // get note bold
+                int noteBold = sqlite3_column_int(statement, 3);
+                
+                // get note italic
+                int noteItalic = sqlite3_column_int(statement, 4);
+                
+                MNote *note = [MNote new];
+                [note setNoteName:noteName];
+                [note setLastModified:lastModifiedDate];
+                [note setTextSize:noteSize];
+                [note setTextBold:noteBold];
+                [note setTextItalic:noteItalic];
+                [note setNoteText:noteText];
+                
+                [notes addObject:note];
+                
+            }
+            
+            sqlite3_reset(statement);
+            
+        }
+        
+    }
+    
+    return notes;
+    
+}
 
 - (BOOL) deleteNote: (NSString *) noteName{
     

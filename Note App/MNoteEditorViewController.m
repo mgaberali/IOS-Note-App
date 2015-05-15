@@ -15,8 +15,10 @@
 @implementation MNoteEditorViewController{
     
     BOOL saved;
+    BOOL saveOnBack;
+    IBOutlet UIButton *saveBtn;
     
-    IBOutlet UIBarButtonItem *saveBtn;
+
 }
 
 @synthesize textEditor, note;
@@ -36,15 +38,19 @@
 	// Do any additional setup after loading the view.
     
     textEditor.delegate = self;
+    saveOnBack = NO;
     
     if(note == nil){
         note = [MNote new];
         saved = NO;
         [saveBtn setEnabled:YES];
         
+        [self.navigationItem setTitle:@"New Note"];
+        
     }else{
         saved = YES;
         [textEditor setText:[note noteText]];
+        [self.navigationItem  setTitle:[note noteName]];
     }
     
 }
@@ -61,6 +67,7 @@
     
     // ask about note name
     if([note noteName] == nil){
+        
         [self askForNoteNameAlert];
     }else{
         // update note
@@ -91,6 +98,13 @@
             
             // save note in db
             [self insertNoteInDB];
+            
+            // change nav bar title
+            [self.navigationItem  setTitle:[note noteName]];
+            
+            if(saveOnBack){
+                [[self navigationController] popViewControllerAnimated:YES];
+            }
         
         }
         
@@ -99,6 +113,7 @@
         if(buttonIndex == 1){
             
             if([note noteName] == nil){
+                saveOnBack = YES;
                 [self askForNoteNameAlert];
                 
             }else{

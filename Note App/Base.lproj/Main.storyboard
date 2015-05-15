@@ -27,19 +27,36 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ArH-XY-7bd">
-                        <barButtonItem key="leftBarButtonItem" title="Back" id="MAv-ml-Fwb">
-                            <connections>
-                                <action selector="onBackButtonPressed:" destination="xGu-qG-tmi" id="ui0-UH-bRp"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="3NR-92-ejw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hxl-YB-1cG">
+                                <rect key="frame" x="16" y="12" width="70" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" backgroundImage="btn_back.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onBackButtonPressed:" destination="xGu-qG-tmi" eventType="touchUpInside" id="AUp-wC-QKf"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Save" id="Kcu-zm-SRT">
-                            <connections>
-                                <action selector="saveNote:" destination="xGu-qG-tmi" id="epf-6A-C0t"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="plain" id="xRb-tZ-isw">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C8y-gj-3W7">
+                                <rect key="frame" x="280" y="10" width="24" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" backgroundImage="btn_save.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveNote:" destination="xGu-qG-tmi" eventType="touchUpInside" id="iYA-GS-J7D"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="saveBtn" destination="Kcu-zm-SRT" id="em1-JI-G76"/>
+                        <outlet property="saveBtn" destination="C8y-gj-3W7" id="n1m-yE-yIV"/>
                         <outlet property="textEditor" destination="KlR-FM-HCx" id="c4k-Rd-Z9a"/>
                     </connections>
                 </viewController>
@@ -47,7 +64,7 @@
             </objects>
             <point key="canvasLocation" x="1347" y="-176"/>
         </scene>
-        <!--Notes List View Controller-->
+        <!--Notes List View Controller - My Notes-->
         <scene sceneID="NXd-Ji-Aml">
             <objects>
                 <tableViewController id="6je-rG-QFu" customClass="MNotesListViewController" sceneMemberID="viewController">
@@ -55,7 +72,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="Lpm-NI-nXv">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by note name or any text inside" id="Lpm-NI-nXv">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -75,13 +92,14 @@
                             <outlet property="delegate" destination="6je-rG-QFu" id="xWz-9c-EEI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Kjm-St-q0w">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="knL-Xk-31A">
+                    <navigationItem key="navigationItem" title="My Notes" id="Kjm-St-q0w">
+                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="knL-Xk-31A">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cz2-t9-a7i">
-                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <rect key="frame" x="280" y="10" width="24" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="New">
+                                <state key="normal" backgroundImage="btn_new.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -118,6 +136,11 @@
             <point key="canvasLocation" x="409" y="-165"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btn_back.png" width="172" height="40"/>
+        <image name="btn_new.png" width="24" height="24"/>
+        <image name="btn_save.png" width="24" height="24"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

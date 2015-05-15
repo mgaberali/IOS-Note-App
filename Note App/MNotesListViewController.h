@@ -10,6 +10,6 @@
 #import "MDBManager.h"
 #import "MNoteEditorViewController.h"
 
-@interface MNotesListViewController : UITableViewController
+@interface MNotesListViewController : UITableViewController <UISearchBarDelegate>
 
 @end

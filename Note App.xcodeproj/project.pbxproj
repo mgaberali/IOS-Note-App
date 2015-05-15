@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D195DC711B05D7D1009C3917 /* btn_back.png in Resources */ = {isa = PBXBuildFile; fileRef = D195DC6F1B05D7D1009C3917 /* btn_back.png */; };
+		D195DC721B05D7D1009C3917 /* nav_bar.png in Resources */ = {isa = PBXBuildFile; fileRef = D195DC701B05D7D1009C3917 /* nav_bar.png */; };
+		D195DC781B05DF61009C3917 /* btn_new.png in Resources */ = {isa = PBXBuildFile; fileRef = D195DC771B05DF61009C3917 /* btn_new.png */; };
+		D195DC7A1B05E621009C3917 /* btn_save.png in Resources */ = {isa = PBXBuildFile; fileRef = D195DC791B05E621009C3917 /* btn_save.png */; };
 		D19A42831B048940006C4293 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D19A42821B048940006C4293 /* libsqlite3.dylib */; };
 		D19A42861B04895B006C4293 /* MDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D19A42851B04895B006C4293 /* MDBManager.m */; };
 		D19F33081B03AA2E0059E23D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D19F33071B03AA2E0059E23D /* Foundation.framework */; };
@@ -38,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D195DC6F1B05D7D1009C3917 /* btn_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_back.png; sourceTree = "<group>"; };
+		D195DC701B05D7D1009C3917 /* nav_bar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_bar.png; sourceTree = "<group>"; };
+		D195DC771B05DF61009C3917 /* btn_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_new.png; sourceTree = "<group>"; };
+		D195DC791B05E621009C3917 /* btn_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_save.png; sourceTree = "<group>"; };
 		D19A42821B048940006C4293 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		D19A42841B04895B006C4293 /* MDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDBManager.h; sourceTree = "<group>"; };
 		D19A42851B04895B006C4293 /* MDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDBManager.m; sourceTree = "<group>"; };
@@ -91,6 +99,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D195DC6E1B05D79D009C3917 /* img */ = {
+			isa = PBXGroup;
+			children = (
+				D195DC791B05E621009C3917 /* btn_save.png */,
+				D195DC771B05DF61009C3917 /* btn_new.png */,
+				D195DC6F1B05D7D1009C3917 /* btn_back.png */,
+				D195DC701B05D7D1009C3917 /* nav_bar.png */,
+			);
+			name = img;
+			sourceTree = "<group>";
+		};
 		D19F32FB1B03AA2E0059E23D = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +144,7 @@
 		D19F330D1B03AA2E0059E23D /* Note App */ = {
 			isa = PBXGroup;
 			children = (
+				D195DC6E1B05D79D009C3917 /* img */,
 				D19F33161B03AA2E0059E23D /* MAppDelegate.h */,
 				D19F33171B03AA2E0059E23D /* MAppDelegate.m */,
 				D19F33191B03AA2E0059E23D /* Main.storyboard */,
@@ -250,7 +270,11 @@
 			files = (
 				D19F33201B03AA2E0059E23D /* Images.xcassets in Resources */,
 				D19F33121B03AA2E0059E23D /* InfoPlist.strings in Resources */,
+				D195DC721B05D7D1009C3917 /* nav_bar.png in Resources */,
+				D195DC781B05DF61009C3917 /* btn_new.png in Resources */,
 				D19F331B1B03AA2E0059E23D /* Main.storyboard in Resources */,
+				D195DC711B05D7D1009C3917 /* btn_back.png in Resources */,
+				D195DC7A1B05E621009C3917 /* btn_save.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
