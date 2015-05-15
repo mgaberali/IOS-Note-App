@@ -5,3 +5,5 @@ in order to the app can find the path of SQLite database file.
 
 - This app work right on IOS simulator because app SQLite databse configure to work on 
 an  ios simulator not on a real device.
+
+- Simulator Size: iPhone Retina (4.0-inch)
